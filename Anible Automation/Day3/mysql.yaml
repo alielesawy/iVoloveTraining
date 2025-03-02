@@ -1,0 +1,47 @@
+---
+- name: Install and Configure MySQL
+  hosts: dbservers
+  become: yes
+  vars_files:
+    - mysql_secrets.yml
+  tasks:
+    - name: Install MySQL Server
+      ansible.builtin.yum:
+        name: mysql-server
+        state: present
+
+    - name: Start and Enable MySQL
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: yes
+
+    - name: Install MySQL Python dependencies
+      ansible.builtin.yum:
+        name: python3-PyMySQL
+        state: present
+
+    - name: Set MySQL Root Password
+      community.mysql.mysql_user:
+        name: root
+        host: localhost
+        password: "{{ mysql_root_password }}"
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        state: present
+
+    - name: Create ivolve Database
+      community.mysql.mysql_db:
+        name: ivolve
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+
+    - name: Create ivolve User
+      community.mysql.mysql_user:
+        name: ivolve_user
+        host: localhost
+        password: "{{ ivolve_db_password }}"
+        priv: 'ivolve.*:ALL'
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
