@@ -19,7 +19,7 @@ This document outlines the steps to create two Ansible playbooks: one for Apache
    - This file will be deployed to the web server by the Apache playbook.
 
 4. **Create MySQL playbook (`mysql.yaml`)**  
-   - Install MySQL (MariaDB).  
+   - Install MySQL.  
    - Start and enable the service.
 
 5. **Set up Ansible Vault**  
