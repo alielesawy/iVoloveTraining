@@ -16,10 +16,11 @@ This document outlines the basic steps for setting up a simple AWS environment.
 
 5. **Create a Security Group (SG)**  
    - Set inbound and outbound rules to allow essential traffic (e.g., HTTP, SSH).
-
+   - Another for Application Load Balancer
 6. **Launch Two EC2 Instances**  
    - One runs Apache.  
    - The other runs Nginx.
+   - configure user data scripts  [apache](/Amazon%20Web%20Services%20(AWS)/Day5/apache.sh) and [nginx](/Amazon%20Web%20Services%20(AWS)/Day5/nginx.sh)
 
 7. **Create a Target Group**  
    - Register both EC2 instances to receive traffic.
