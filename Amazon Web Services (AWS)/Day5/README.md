@@ -30,3 +30,9 @@ This document outlines the basic steps for setting up a simple AWS environment.
 
 ## Demo 
 ![aws](/src/aws-lb.gif)
+
+- Load Balancer 
+![aws](/src/aws-lb1.png)
+
+- Target Group
+![aws](/src/aws-lb2.png)
