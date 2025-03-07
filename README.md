@@ -10,3 +10,5 @@ This repo will contain daily tasks during OJT at iVolve company
 - [Ansible Automation](/Anible%20Automation/README.md)
 
 - [Amazon Web Services (AWS)](/Amazon%20Web%20Services%20(AWS)/README.md)
+
+- [Terraform](/Terraform/README.md)
